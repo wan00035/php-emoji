@@ -2,7 +2,16 @@
     // Emoji Smileys
     // 128512 - 128567
     // 129296 - 129327
-    
+    $emojis =[];
+    for( $i =128512; $i< 128567;$i++){
+      array_push($emojis,$i);
+    }
+    for( $i =129296; $i< 129327;$i++){
+      array_push($emojis,$i);
+    }
+    //rand(min, max)
+    $random = rand(0,count($emojis)-1)
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,18 +27,21 @@
   <div class="container">
     <div class="row my-3">
       <div class="col">
-        <h1 class="display-4 text-center">Emoji</h1>
+        <h1 class="display-4 text-center">&#<?php echo $emojis[$random];?>Emoji</h1>
       </div>
     </div>
     <div class="row">
+      <?php foreach ($emojis as $emoji):?>
       <div class="col-2 mb-3">
         <div class="card">
           <div class="card-body text-center">
-            <p class="display-4 d-flex justify-content-center align-items-center mb-0">&#128512;</p>
-            <code>128512</code>
+            <p class="display-4 d-flex justify-content-center align-items-center mb-0">
+              &#<?php echo $emoji;?></p>
+            <code><?php echo $emoji;?></code>
           </div>
         </div>
       </div>
+      <?php endforeach; ?>
     </div>
   </div>
   
